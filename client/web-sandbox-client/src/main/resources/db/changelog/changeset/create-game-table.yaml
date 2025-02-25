@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-game-master-schema
+      author: Gm
+      changes:
+        - createTable:
+            schemaName: game
+            tableName: game_master
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: genre
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: platform
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rating
+                  type: varchar(50)
+              - column:
+                  name: description
+                  type: text
+        - createSequence:
+            sequenceName: game_master_id_seq
+            startValue: 1
+            incrementBy: 1
+            schemaName: game

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать игру</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="language-switcher">
+    <a href="?lang=en">English</a> | <a href="?lang=ru">Русский</a>
+</div>
+
+<div class="form-container">
+    <h1>Создать игру</h1>
+
+    <form th:action="@{/api/games/new}" th:object="${game}" method="post" class="game-form">
+
+        <div data-th-if="${errors}">
+            <h2>Допущены ошибки</h2>
+            <ul>
+                <li data-th-each="error: ${errors}" data-th-text="${error}"></li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Название:</label>
+            <input type="text" th:field="*{name}" id="name" class="input-field"/>
+        </div>
+
+        <div class="form-group">
+            <label for="genre">Жанр:</label>
+            <select th:field="*{genre}" id="genre" class="input-field">
+                <option th:each="genre : ${T(gm.sandbox.websandbox.type.GenreType).values()}"
+                        th:value="${genre.name}"
+                        th:text="${genre.name}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="platform">Платформа:</label>
+            <select th:field="*{platform}" id="platform" class="input-field">
+                <option th:each="platform : ${T(gm.sandbox.websandbox.type.PlatformType).values()}"
+                        th:value="${platform}"
+                        th:text="${platform}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Рейтинг (0.0 - 9.9):</label>
+            <input type="text" th:field="*{rating}" id="rating" class="input-field"/>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Описание:</label>
+            <textarea th:field="*{description}" id="description" class="input-field"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="submit-button">Сохранить</button>
+        </div>
+    </form>
+
+    <a href="/" class="back-link">Назад</a>
+</div>
+</body>
+</html>

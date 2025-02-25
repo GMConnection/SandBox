@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали игры</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <style>
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .top-bar button {
+            margin-right: 10px;
+        }
+
+        .top-bar form {
+            margin-left: 10px;
+        }
+
+        .top-bar .login-btn {
+            margin-left: auto; /* Отталкивает кнопку Login вправо */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Верхняя панель с кнопками -->
+<div class="top-bar">
+    <div>
+        <button onclick="window.location.href='/api/games'">Назад к списку игр</button>
+
+        <!-- Используем ссылку для редактирования игры -->
+
+        <form th:action="@{/api/games/edit/{id}(id=${game.id})}" method="get" style="display:inline;">
+            <button type="submit">Изменить</button>
+        </form>
+
+
+        <!-- Форма для удаления игры -->
+        <form th:action="@{/api/games/delete/{id}(id=${game.id})}" method="post" style="display:inline;">
+            <button type="submit">Удалить</button>
+        </form>
+    </div>
+
+    <button class="login-btn" onclick="window.location.href='/login'">Login</button>
+</div>
+
+<!-- Детали игры -->
+<h2>Детали игры: <span th:text="${game.name}"></span></h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <td th:text="${game.id}"></td>
+    </tr>
+    <tr>
+        <th>Название</th>
+        <td th:text="${game.name}"></td>
+    </tr>
+    <tr>
+        <th>Жанр</th>
+        <td th:text="${game.genre}"></td>
+    </tr>
+    <tr>
+        <th>Платформа</th>
+        <td th:text="${game.platform}"></td>
+    </tr>
+    <tr>
+        <th>Рейтинг</th>
+        <td th:text="${game.rating}"></td>
+    </tr>
+    <tr>
+        <th>Описание</th>
+        <td th:text="${game.description}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
