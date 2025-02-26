@@ -1,4 +1,4 @@
-package gm.sandbox.websandbox.config;
+package gm.sandbox.websandboxserver.config;
 
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.InjectionStrategy;
@@ -11,5 +11,5 @@ import org.mapstruct.ReportingPolicy;
         componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
-public class CommonMapperConfiguration {
+public class  CommonMapperConfiguration {
 }

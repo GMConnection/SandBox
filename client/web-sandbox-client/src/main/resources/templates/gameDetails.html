@@ -34,13 +34,13 @@
 
         <!-- Используем ссылку для редактирования игры -->
 
-        <form th:action="@{/api/games/edit/{id}(id=${game.id})}" method="get" style="display:inline;">
+        <form th:action="@{/api/games/{id}(id=${game.id})}" method="get" style="display:inline;">
             <button type="submit">Изменить</button>
         </form>
 
 
         <!-- Форма для удаления игры -->
-        <form th:action="@{/api/games/delete/{id}(id=${game.id})}" method="post" style="display:inline;">
+        <form th:action="@{/api/games/{id}(id=${game.id})}" method="post" style="display:inline;">
             <button type="submit">Удалить</button>
         </form>
     </div>

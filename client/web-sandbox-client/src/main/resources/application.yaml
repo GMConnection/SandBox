@@ -1,15 +1,2 @@
-spring:
-  datasource:
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:1111/postgres
-    username: sa
-    password:
-
-  liquibase:
-#    change-log: classpath:/dblogs/changelog/changelog-master.yaml #???? ? ?????? ????????
-    enabled: true
-
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+ServerPorts:
+    uri: http://localhost:8081

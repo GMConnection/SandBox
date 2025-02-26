@@ -1,8 +1,8 @@
-package gm.sandbox.websandbox.entity;
+package gm.sandbox.websandboxserver.entity;
 
 
-import gm.sandbox.websandbox.type.GenreType;
-import gm.sandbox.websandbox.type.PlatformType;
+import gm.sandbox.websandboxserver.type.GenreType;
+import gm.sandbox.websandboxserver.type.PlatformType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

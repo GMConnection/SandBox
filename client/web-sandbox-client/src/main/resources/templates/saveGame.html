@@ -14,7 +14,7 @@
 <div class="form-container">
     <h1>Создать игру</h1>
 
-    <form th:action="@{/api/games/new}" th:object="${game}" method="post" class="game-form">
+    <form th:action="@{/api/games}" th:object="${game}" method="post" class="game-form">
 
         <div data-th-if="${errors}">
             <h2>Допущены ошибки</h2>

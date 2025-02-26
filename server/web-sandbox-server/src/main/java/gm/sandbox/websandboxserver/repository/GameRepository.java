@@ -1,6 +1,6 @@
-package gm.sandbox.websandbox.repository;
+package gm.sandbox.websandboxserver.repository;
 
-import gm.sandbox.websandbox.entity.Game;
+import gm.sandbox.websandboxserver.entity.Game;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

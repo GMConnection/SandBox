@@ -1,25 +1,24 @@
-package gm.sandbox.websandbox.service;
+package gm.sandbox.websandboxserver.service;
 
-import gm.sandbox.websandbox.dto.GameDto;
-import gm.sandbox.websandbox.mapper.GameMapper;
-import gm.sandbox.websandbox.repository.GameRepository;
+import gm.sandbox.websandboxserver.dto.GameDto;
+import gm.sandbox.websandboxserver.entity.Game;
+import gm.sandbox.websandboxserver.mapper.GameMapper;
+import gm.sandbox.websandboxserver.repository.GameRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class GameService {
 
     private final GameRepository repository;
     private final GameMapper mapper;
 
-    public GameService(GameRepository repository, GameMapper mapper) {
-        this.repository = repository;
-        this.mapper = mapper;
-    }
-
-    public void saveOrUpdate(GameDto game) {
-        repository.save(mapper.mapToEntity(game));
+    public GameDto saveOrUpdate(GameDto game) {
+        Game save = repository.save(mapper.mapToEntity(game));
+        return mapper.mapToDto(save);
     }
 
     public GameDto findById(Long id) {
